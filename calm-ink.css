@@ -1,0 +1,194 @@
+/* calm-ink — a QLMarkdown theme faithful to the calm identity.
+   Monochrome ink on paper + the one clay accent (held in reserve), locked typefaces,
+   hierarchy by space + weight + type, never colour-coding. Light and dark both.
+   Tokens: github.com/shakilclark/calm/tokens.css · Identity: docs/identity.md
+   This style is appended after QLMarkdown's base + highlight CSS, so it overrides both. */
+
+:root {
+  /* paper — light (warm off-white + near-black ink, reads as paper not screen) */
+  --calm-bg:     #F7F4EC;
+  --calm-fg:     #26231E;
+  --calm-dim:    #6B6456;
+  --calm-line:   #E4DCCB;
+  --calm-card:   #FCFAF4;
+  --calm-sel:    #E7E1D2;
+  --calm-accent: #B5612F;   /* clay — the one allowed accent, never alarm-red */
+
+  /* remap QLMarkdown's base variables onto calm */
+  --textPrimary:        var(--calm-fg);
+  --background:         var(--calm-bg);
+  --body-border-color:  var(--calm-line);
+  --link:               var(--calm-accent); /* clay links — a soft touch, your chosen override */
+  --link-highlight:     var(--calm-sel);
+  --code-background:    var(--calm-card);
+  --hr-background:      var(--calm-line);
+  --thead-background:   var(--calm-card);
+  --thead-border:       var(--calm-line);
+  --tr-border:          var(--calm-line);
+  --tr-alt-background:  var(--calm-card);
+  --kbd-background:     var(--calm-card);
+  --kbd-color:          var(--calm-fg);
+  --kbd-border:         var(--calm-line);
+  --blockquote-color:   var(--calm-dim);
+  --blockquote-border:  var(--calm-line);
+  --heading-color:      var(--calm-fg);
+  --header-bottom-border: var(--calm-line);
+  --h6-color:           var(--calm-dim);
+  --frame-border:       var(--calm-line);
+  --frame-color:        var(--calm-fg);
+  --mention-color:      var(--calm-fg);
+  --keyword-color:      var(--calm-dim);
+  --code-font: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* code — quieted to monochrome ink; differentiation by weight, not hue.
+     A reader is a reading surface, not a working terminal — calmest is no colour-coding. */
+  --hl_Background:          var(--calm-card);
+  --hl_Line_Number:         var(--calm-dim);
+  --hl_Number:              var(--calm-fg);
+  --hl_Escape:              var(--calm-fg);
+  --hl_String:              var(--calm-dim);
+  --hl_String_Pre_Processor: var(--calm-dim);
+  --hl_Block_Comment:       var(--calm-dim);
+  --hl_Line_Comment:        var(--calm-dim);
+  --hl_Pre_Processor:       var(--calm-fg);
+  --hl_Operator:            var(--calm-fg);
+  --hl_Interpolation:       var(--calm-fg);
+  --hl_Keyword-1:           var(--calm-fg);
+  --hl_Keyword-2:           var(--calm-fg);
+  --hl_Keyword-3:           var(--calm-fg);
+  --hl_Keyword-4:           var(--calm-fg);
+  --hl_Keyword-5:           var(--calm-fg);
+  --hl_Keyword-6:           var(--calm-fg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ink — dark (soft off-black + bone-white ink, clay lifted for the dark ground) */
+    --calm-bg:     #1B1814;
+    --calm-fg:     #ECE6D8;
+    --calm-dim:    #9A9080;
+    --calm-line:   #2C2820;
+    --calm-card:   #221E19;
+    --calm-sel:    #2E2A23;
+    --calm-accent: #EDB489;
+
+    --textPrimary:        var(--calm-fg);
+    --background:         var(--calm-bg);
+    --body-border-color:  var(--calm-line);
+    --link:               var(--calm-accent);
+    --link-highlight:     var(--calm-sel);
+    --code-background:    var(--calm-card);
+    --hr-background:      var(--calm-line);
+    --thead-background:   var(--calm-card);
+    --thead-border:       var(--calm-line);
+    --tr-border:          var(--calm-line);
+    --tr-alt-background:  var(--calm-card);
+    --kbd-background:     var(--calm-card);
+    --kbd-color:          var(--calm-fg);
+    --kbd-border:         var(--calm-line);
+    --blockquote-color:   var(--calm-dim);
+    --blockquote-border:  var(--calm-line);
+    --heading-color:      var(--calm-fg);
+    --header-bottom-border: var(--calm-line);
+    --h6-color:           var(--calm-dim);
+    --frame-border:       var(--calm-line);
+    --frame-color:        var(--calm-fg);
+    --mention-color:      var(--calm-fg);
+    --keyword-color:      var(--calm-dim);
+  }
+}
+
+/* ---- type does all the work: body sans + display serif + mono ---- */
+
+body {
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif;
+  background-color: var(--calm-bg);
+  color: var(--calm-fg);
+  line-height: 1.75;               /* generous — low decoding cost (R10) */
+  letter-spacing: 0.01em;
+  max-width: 46rem;                /* a comfortable reading measure */
+  margin: 0 auto;
+  padding: 2.4rem 2rem 4rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Yrsa', Georgia, serif;   /* the work-facing serious voice */
+  color: var(--calm-fg);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+}
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4, h5, h6 { font-size: 1.05rem; }
+
+/* quiet the heading underlines to a calm hairline, not a hard rule */
+h1, h2 {
+  border-bottom: 1px solid var(--calm-line);
+  padding-bottom: 0.3em;
+}
+
+p, li { color: var(--calm-fg); }
+
+/* links: a soft clay, underlined — visible but never loud */
+a, a:visited {
+  color: var(--calm-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--calm-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  opacity: 0.95;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+  background-color: transparent;
+}
+
+/* blockquote: a quiet clay hairline is the one place the accent earns a whisper */
+blockquote {
+  color: var(--calm-dim);
+  border-left: 2px solid var(--calm-accent);
+  background: transparent;
+  margin-left: 0;
+  padding-left: 1.1em;
+  font-style: normal;
+}
+
+code, pre, kbd, tt {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+code {
+  background-color: var(--calm-card);
+  border-radius: 4px;
+  padding: 0.12em 0.35em;
+}
+pre {
+  background-color: var(--calm-card);
+  border: 1px solid var(--calm-line);
+  border-radius: 8px;
+  padding: 1em 1.1em;
+  line-height: 1.6;
+}
+pre code { background: transparent; padding: 0; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--calm-line);
+  margin: 2.4em 0;
+}
+
+table { border-collapse: collapse; }
+th, td { border: 1px solid var(--calm-line); padding: 0.5em 0.8em; }
+thead th { background-color: var(--calm-card); }
+tr:nth-child(2n) td { background-color: var(--calm-card); }
+
+::selection { background-color: var(--calm-sel); }
+
+img { max-width: 100%; }
