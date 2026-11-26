@@ -1,6 +1,6 @@
 # calm-ink — a QLMarkdown theme
 
-A quiet markdown QuickLook theme for macOS, faithful to the [calm](https://github.com/shakilclark/calm) identity: monochrome ink on paper, the locked typefaces, hierarchy carried by space and weight rather than colour. Built for [QLMarkdown](https://github.com/sbarex/QLMarkdown).
+A quiet markdown QuickLook theme for macOS, faithful to the [calm](https://github.com/therealshakil/calm) identity: monochrome ink on paper, the locked typefaces, hierarchy carried by space and weight rather than colour. Built for [QLMarkdown](https://github.com/sbarex/QLMarkdown).
 
 ## The look
 
@@ -26,4 +26,4 @@ A quiet markdown QuickLook theme for macOS, faithful to the [calm](https://githu
 ## Notes
 
 - The style *extends* QLMarkdown's default theme — it remaps the base CSS variables to calm's palette and overrides the typefaces, so it rides the existing structure rather than replacing it.
-- Colour values and typeface choices come straight from calm's [`tokens.css`](https://github.com/shakilclark/calm/blob/main/tokens.css) and [`docs/identity.md`](https://github.com/shakilclark/calm/blob/main/docs/identity.md) — change is by deliberate revision, not drift.
+- Colour values and typeface choices come straight from calm's [`tokens.css`](https://github.com/therealshakil/calm/blob/main/tokens.css) and [`docs/identity.md`](https://github.com/therealshakil/calm/blob/main/docs/identity.md) — change is by deliberate revision, not drift.

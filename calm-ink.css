@@ -1,7 +1,7 @@
 /* calm-ink — a QLMarkdown theme faithful to the calm identity.
    Monochrome ink on paper + the one clay accent (held in reserve), locked typefaces,
    hierarchy by space + weight + type, never colour-coding. Light and dark both.
-   Tokens: github.com/shakilclark/calm/tokens.css · Identity: docs/identity.md
+   Tokens: github.com/therealshakil/calm/tokens.css · Identity: docs/identity.md
    This style is appended after QLMarkdown's base + highlight CSS, so it overrides both. */
 
 :root {
